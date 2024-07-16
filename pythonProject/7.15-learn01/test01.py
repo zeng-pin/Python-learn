@@ -1,5 +1,10 @@
 lst=[]
-for i in range(3):
+while 1:
+    n=input('输入商品数量：')
+    if n<'0' or n>'9': print('not a num !');continue;
+    break;
+
+for i in range(int(n)):
     goods=input("input your goods :")
     lst.append(goods)
 
