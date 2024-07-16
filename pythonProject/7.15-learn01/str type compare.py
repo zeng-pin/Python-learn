@@ -1,0 +1,9 @@
+a='12345'
+b='一二三'
+c='abcd'
+d='ABCD'
+print(a.isdigit())
+print(b.isnumeric())
+print(c.isalpha(),a.isalpha())
+print(c.islower(),d.islower())
+print(c.isupper(),d.isupper())
