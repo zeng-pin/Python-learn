@@ -1,0 +1,5 @@
+aaaaa
+bbbb
+45646
+name	age	score
+ppp	22	100
