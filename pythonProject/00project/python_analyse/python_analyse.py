@@ -24,7 +24,7 @@ def clear_folder(folder_path):
 if __name__ == '__main__':
 
     import os
-    before_analyse_lst = os.listdir('./before_analyse')
+    before_analyse_lst = os.listdir('before_analyse')
     print(before_analyse_lst)
 
     for item in before_analyse_lst:
@@ -34,13 +34,13 @@ if __name__ == '__main__':
         filename_after='after_analyse/'+item01+'-.txt'
         file_write(filename_after, lst)
     print('转换完成')
-    clear=input('输入0清空数据: ')
-    if clear=='0':
-        # clear_folder('./before_analyse')
-        # clear_folder('./before_analyse')
-        clear_folder('./after_analyse')
-        clear_folder('./after_analyse')
-    else:print('如需删除文件再次点击开始并输入0')
+    # clear=input('输入0清空数据: ')
+    # if clear=='0':
+    #     # clear_folder('./before_analyse')
+    #     # clear_folder('./before_analyse')
+    #     clear_folder('./after_analyse')
+    #     clear_folder('./after_analyse')
+    # else:print('如需删除文件再次点击开始并输入0')
 
 
 
