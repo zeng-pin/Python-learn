@@ -13,7 +13,7 @@ if __name__ == '__main__':
         p.start()
         #将启动的进出添加到列表中
         lst.append(p)
-    #遍历列表的5个进程
+    #遍历列表的5个进程并进行阻塞
     for item in lst:#item的类型是Process
         item.join()#通过item.join()  对主进程进行阻塞，实现先执行完子进程再执行主进程
 
