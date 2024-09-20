@@ -1,7 +1,7 @@
 from multiprocessing import Pool
 import os,time
 def task(name):
-    print(f'子进程的PID{os.getpid()},执行认为{name}')
+    print(f'子进程的PID{os.getpid()},执行的是{name}')
     time.sleep(1)
 
 if __name__ == '__main__':
@@ -19,4 +19,5 @@ if __name__ == '__main__':
     print('子进程执行完毕，父进程结束')
     print(time.time()-start)
 
-
+##阻塞方法一定要等前一个进程执行完成才会执行下一个进程
+##所以总时间为10秒

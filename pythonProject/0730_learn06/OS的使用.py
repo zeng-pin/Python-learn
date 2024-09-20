@@ -3,7 +3,7 @@ import os
 print('当前路径: ',os.getcwd())
 lst=os.listdir()
 print('当前路径下的目录与文件:',lst)
-print('制定路径下的目录与文件',os.listdir(r'G:\python-learn\pythonProject\0725_learn05'))
+print('特定路径下的目录与文件',os.listdir(r'G:\python-learn\pythonProject\0725_learn05'))
 #创建文件目录
 
 os.mkdir('创建文件夹实例')

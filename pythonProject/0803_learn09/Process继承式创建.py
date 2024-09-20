@@ -7,23 +7,21 @@ class SubProcess(Process):
         super().__init__()#调用父类的初始化方法
         self.name=name
 
-    def run(self):
-        print(f'子进程的名称{self.name},PID：{os.getpid()},父进程的PID:{os.getppid()}')
+    def run(self):#子类SubProcess改写父类Process的run,也就是会改变p.start()的运行
+        print(f'子进程的名称: {self.name} ,PID：{os.getpid()},父进程的PID:{os.getppid()}')
 
 
 if __name__ == '__main__':
     print('父进程开始执行')
     lst=[]
     for i in range(1,6):
-        p1=SubProcess(f'这是第{i}个进程')#调用Process中的run但run被子类改写
+        p1=SubProcess(f'第{i}个进程')#调用Process中的run但run被子类改写
         #启动进程
         p1.start()#此处子类SubProcess没有start方法,所以调用的是父类中的start方法
-        lst.append(p1)
+        lst.append(p1)#lst可以装入进程
+    #print(type(lst),type(lst[0]),lst,lst[0])
 
     for item in lst:
         item.join(2)
     print('父进程执行完毕')
-
-
-
 

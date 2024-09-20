@@ -18,7 +18,7 @@ if __name__ == '__main__':
     #出队
     print(q.get())
     print('队列中的信息个数: ',q.qsize())
-    #入队使用put_nowait，不管是否有空位直接进队，如果队列已满则会报错
+    #入队使用put_nowait，不管是否有空位直接进队，如果队列已满则会报错queue.Full
     q.put_nowait('ddd')
     #若此时使用q.put()则不会报错，但程序会一直等待，直到队列产生空位
 

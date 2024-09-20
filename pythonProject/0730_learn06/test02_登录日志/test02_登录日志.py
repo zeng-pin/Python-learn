@@ -8,7 +8,7 @@ from  datetime import datetime
 # with open('user_content.txt', 'w+',encoding='utf-8') as file:
 #     json.dump(user,file,ensure_ascii=False,indent=2)
 
-def login_cheak(name,password,file_place):
+def login_cheak(name, password, file_place):
     flag0=0;flag1=0
     with open(file_place, 'r',encoding='utf-8') as file:
         lst = json.load(file)
@@ -21,8 +21,8 @@ def login_cheak(name,password,file_place):
 def user_date(name,file_place):
     with open(file_place,'r',encoding='utf-8') as file:
         lst = json.load(file)
-        user_login_time=datetime.now()
-        user_login_time_str=user_login_time.strftime('%Y/%m/%d %H:%M:%S')
+        user_login_time = datetime.now()
+        user_login_time_str = user_login_time.strftime('%Y/%m/%d %H:%M:%S')
         for item in lst:
             if item.get('账号') == name:
                 user_login_lasttime = item['登录日志']

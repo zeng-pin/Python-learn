@@ -6,8 +6,7 @@ print(post)
 #d=dict(d=10,e=20)
 #print(d)
 print(post.get('b'))
-print(post.get('p','nono'))
-
+print(post.get('p','未找到'))
 for k in post.items():
     print(k,end=' ')
 print('\n')

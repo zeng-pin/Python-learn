@@ -9,6 +9,7 @@ def my_read():
         lst=s.split(',')
         print(lst)
 
+##二维数组的写入
 def my_table_write():
     lst=[
         ['商品名','单价','采购数'],
@@ -20,12 +21,12 @@ def my_table_write():
         for i in lst:
             item=','.join(i)
             file.write(item)
-            file.write('\n')
+            file.write('\n')##将二维转化为一维并分割
 
 def my_table_read():
     data=[]
     with open('table_test.csv','r',encoding='utf-8') as file:
-        lst=file.readlines()
+        lst=file.readlines()##读取一整行，用行数区分二维
         #print(type(lst),lst)
         for item in lst:
             item1=item[:len(item)-1]#将列表中的\n去除
