@@ -9,14 +9,14 @@ data=pd.read_csv('G:\\python-learn\\machinelearning\\learn0807_线性回归\\dat
 train_data = data.sample(frac=0.8)
 test_data = data.drop(train_data.index)#得到测试数据
 
-input_param_name='Economy..GDP.per.Capita.'
-output_param_name='Happiness.Score'
+input_param_name = 'Economy..GDP.per.Capita.'
+output_param_name = 'Happiness.Score'
 
-x_train=train_data[[input_param_name]].values
-y_train=train_data[[output_param_name]].values
+x_train = train_data[[input_param_name]].values
+y_train = train_data[[output_param_name]].values
 
-x_test=test_data[[input_param_name]].values
-y_test=test_data[[output_param_name]].values
+x_test = test_data[[input_param_name]].values
+y_test = test_data[[output_param_name]].values
 
 plt.scatter(x_train,y_train,label='Train data')
 plt.scatter(x_test,y_test,label='Test data')
@@ -30,8 +30,8 @@ plt.show()
 num_iterations = 500
 learning_rate = 0.01
 
-liner_Regression=LinerRegression(x_train,y_train)#初始化
-(theta,cost_history)=liner_Regression.train(learning_rate,num_iterations)#训练数据
+liner_Regression = LinerRegression(x_train,y_train)#初始化
+(theta,cost_history) = liner_Regression.train(learning_rate,num_iterations)#训练数据
 
 print('开始的损失：',cost_history[0])
 print('训练后损失：',cost_history[-1])

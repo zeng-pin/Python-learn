@@ -2,7 +2,7 @@ import numpy as np
 from machinelearning.learn0807_线性回归.utils.features import prepare_for_training
 class LinerRegression:
 
-    def __init__(self,data,lables,polynomial_degree=0,sinusoid_degree=0,normalize_data=True):
+    def __init__(self, data, lables, polynomial_degree=0, sinusoid_degree=0, normalize_data=True):
         '''
         1.对数据进行预处理
         2.得到所有的特征个数
@@ -35,7 +35,7 @@ class LinerRegression:
         '''
         迭代模块，会迭代num_iterations次
         '''
-        cost_history = []
+        cost_history = []#损失变化记录
 
         for _ in range(num_iterations):#迭代损失值参数，并进行参数更新
             self.gradient_step(alpha)
@@ -46,7 +46,7 @@ class LinerRegression:
         '''
         梯度下降参数更新计算方法，为矩阵计算使用numpy.dot
         '''
-        num_examples=self.data.shape[0]#确认数据行数
+        num_examples=self.data.shape[0]#确认矩阵行数即样本总个数
         prediction = LinerRegression.hypothesis(self.data,self.theta)
         delta=prediction - self.lables
         theta=self.theta
@@ -60,7 +60,7 @@ class LinerRegression:
         num_examples = data.shape[0]#行数，即样本个数
         prediction = LinerRegression.hypothesis(self.data, self.theta)
         delta = prediction - self.lables
-        cost = (1/2)*np.dot(delta.T,delta)/num_examples####损失值函数关键，此处使用常见的最小二乘法
+        cost = (1/2)*np.dot(delta.T,delta)/num_examples####损失值函数关键，此处使用常见的最小二乘法进行特征缩放
         return cost[0][0]
 
     @staticmethod
@@ -68,7 +68,7 @@ class LinerRegression:
         '''
         预测值估计
         '''
-        predictions = np.dot(data,theta)
+        predictions = np.dot(data,theta)#h(xθ)的计算
         return predictions
 
 
@@ -86,7 +86,7 @@ class LinerRegression:
         用训练好的参数模型预测得到回归值结果
         '''
         data_processed = prepare_for_training(data, self.polynomial_degree, self.sinusoid_degree, self.normalize_data)[0]
-        predictions=LinerRegression.hypothesis(data_processed,self.theta)
+        predictions = LinerRegression.hypothesis(data_processed,self.theta)
 
         return predictions
 
