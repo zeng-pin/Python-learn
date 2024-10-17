@@ -7,7 +7,6 @@ from .normalize import normalize
 def generate_polynomials(dataset, polynomial_degree, normalize_data=False):
     """变换方法：
     x1, x2, x1^2, x2^2, x1*x2, x1*x2^2, etc.
-    并通过变换方法确定函数的复杂度polynomial_degree为复杂度。
     """
 
     features_split = np.array_split(dataset, 2, axis=1)

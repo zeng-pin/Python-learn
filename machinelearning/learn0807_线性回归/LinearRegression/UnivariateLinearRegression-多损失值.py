@@ -93,12 +93,13 @@ plt.show()
 
 predictions_num = 10
 
-x_min = x_train[:, 0].min();
-x_max = x_train[:, 0].max();
+x_min = x_train[:, 0].min()
+x_max = x_train[:, 0].max()
 
-y_min = x_train[:, 1].min();
-y_max = x_train[:, 1].max();
+y_min = x_train[:, 1].min()
+y_max = x_train[:, 1].max()
 
+#通过np.linspace绘制预测面，找到数据组中的最大值和最小值规定坐标系
 x_axis = np.linspace(x_min, x_max, predictions_num)
 y_axis = np.linspace(y_min, y_max, predictions_num)
 

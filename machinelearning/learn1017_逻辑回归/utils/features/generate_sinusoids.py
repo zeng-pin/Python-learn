@@ -4,7 +4,6 @@ import numpy as np
 def generate_sinusoids(dataset, sinusoid_degree):
     """
     sin(x).
-    通过sin()函数对数据集进行非线性处理
     """
 
     num_examples = dataset.shape[0]

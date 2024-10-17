@@ -1,5 +1,7 @@
 import numpy as np
 from machinelearning.learn0807_线性回归.utils.features import prepare_for_training
+
+
 class LinerRegression:
 
     def __init__(self, data, lables, polynomial_degree=0, sinusoid_degree=0, normalize_data=True):
@@ -10,24 +12,24 @@ class LinerRegression:
         '''
         (data_processed,
          features_mean,
-         features_deviation)=prepare_for_training(data,polynomial_degree=0,sinusoid_degree=0,normalize_data=True)
+         features_deviation) = prepare_for_training(data, polynomial_degree, sinusoid_degree, normalize_data=True)
 
-        self.data=data_processed
-        self.lables=lables
-        self.features_mean=features_mean
-        self.features_deviation=features_deviation
+        self.data = data_processed
+        self.lables = lables
+        self.features_mean = features_mean
+        self.features_deviation = features_deviation
 
 
-        self.polynomial_degree=polynomial_degree
-        self.sinusoid_degree=sinusoid_degree
-        self.normalize_data=normalize_data
+        self.polynomial_degree = polynomial_degree
+        self.sinusoid_degree = sinusoid_degree
+        self.normalize_data = normalize_data
 
-        num_features=self.data.shape[1]#矩阵列数，即模型特征数
+        num_features = self.data.shape[1]#矩阵列数，即模型特征数
         self.theta=np.zeros((num_features,1))#初始矩阵创立
 
     def train(self,alpha,num_iterations=500):#alpha为线性回归中的a为学习率，num_iterations为迭代次数
         #训练模块执行梯度下降，进行调用
-        cost_history= self.gradient_descent(alpha,num_iterations)
+        cost_history = self.gradient_descent(alpha,num_iterations)
         return self.theta,cost_history
 
 
@@ -46,7 +48,7 @@ class LinerRegression:
         '''
         梯度下降参数更新计算方法，为矩阵计算使用numpy.dot
         '''
-        num_examples=self.data.shape[0]#确认矩阵行数即样本总个数
+        num_examples = self.data.shape[0]#确认矩阵行数即样本总个数
         prediction = LinerRegression.hypothesis(self.data,self.theta)
         delta=prediction - self.lables
         theta=self.theta
@@ -68,41 +70,26 @@ class LinerRegression:
         '''
         预测值估计
         '''
-        predictions = np.dot(data,theta)#h(xθ)的计算
+        predictions = np.dot(data,theta)  #h(xθ)的计算
         return predictions
 
 
         #以下为测试集函数
-    def get_cost(self,data,lables):
+    def get_cost(self, data, lables):
         '''
         得到了哪些损失
         '''
-        data_processed=prepare_for_training(data,self.polynomial_degree,self.sinusoid_degree,self.normalize_data)[0]
-        self.cost_function(data_processed,lables)#计算方法和损失值获得
-        return  self.cost_function(data_processed,lables)
+        data_processed = prepare_for_training(data, self.polynomial_degree, self.sinusoid_degree, self.normalize_data)[0]
+        self.cost_function(data_processed, lables)#计算方法和损失值获得
+        return  self.cost_function(data_processed, lables)
 
     def predict(self,data):
         '''
         用训练好的参数模型预测得到回归值结果
         '''
         data_processed = prepare_for_training(data, self.polynomial_degree, self.sinusoid_degree, self.normalize_data)[0]
-        predictions = LinerRegression.hypothesis(data_processed,self.theta)
+        predictions = LinerRegression.hypothesis(data_processed, self.theta)
 
         return predictions
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
